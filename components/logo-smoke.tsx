@@ -1,30 +1,26 @@
 import Image from 'next/image';
 
-export function LogoSmoke({ hero = false, gate = false }: { hero?: boolean; gate?: boolean }) {
-  const size = hero ? 380 : gate ? 280 : 120;
-  const imageClass = hero
-    ? 'h-auto w-[210px] sm:w-[280px] lg:w-[350px]'
-    : gate
-      ? 'h-auto w-[170px] sm:w-[220px]'
-      : 'h-auto w-[84px] sm:w-[98px]';
+export function LogoSmoke({ hero = false }: { hero?: boolean }) {
+  const size = hero ? 340 : 120;
+  const imageClass = hero ? 'h-auto w-[190px] sm:w-[255px] md:w-[340px]' : 'h-auto w-[78px] sm:w-[90px]';
 
   return (
     <div className="relative isolate inline-block">
-      <Image src="/logo.png" alt="Vape Monkey ape logo" width={size} height={size} className={imageClass} priority={hero || gate} />
+      <Image src="/logo.png" alt="Vape Monkey logo" width={size} height={size} className={imageClass} priority={hero} />
 
-      <div className="vapor-origin pointer-events-none absolute left-[13.7%] top-[57.8%]" aria-hidden>
-        <span className="vapor-ember" />
-        <span className="vapor-ribbon vapor-ribbon-1" />
-        <span className="vapor-ribbon vapor-ribbon-2" />
-        <span className="vapor-ribbon vapor-ribbon-3" />
-        <span className="vapor-ribbon vapor-ribbon-4" />
-        <span className="vapor-ribbon vapor-ribbon-5 hidden sm:block" />
+      <div className="pointer-events-none absolute left-[3%] top-[63%] hidden md:block" aria-hidden>
+        <span className="smoke-tip block h-2.5 w-2.5 rounded-full" />
+        <span className="smoke-strand smoke-strand-1 absolute -left-1 -top-2 h-3 w-16" />
+        <span className="smoke-strand smoke-strand-2 absolute -left-2 top-1 h-2.5 w-20" />
+        <span className="smoke-strand smoke-strand-3 absolute -left-1 top-3 h-2.5 w-18" />
+        <span className="smoke-strand smoke-strand-4 absolute left-1 top-5 h-2 w-14" />
+        <span className="smoke-strand smoke-strand-5 absolute left-0 top-7 h-2 w-22" />
       </div>
 
-      <div className="vapor-origin-mobile pointer-events-none absolute left-[13.9%] top-[57.9%] sm:hidden" aria-hidden>
-        <span className="vapor-ember" />
-        <span className="vapor-ribbon vapor-mobile-1" />
-        <span className="vapor-ribbon vapor-mobile-2" />
+      <div className="pointer-events-none absolute left-[4%] top-[63%] md:hidden" aria-hidden>
+        <span className="smoke-tip block h-2 w-2 rounded-full" />
+        <span className="smoke-strand smoke-mobile-strand-1 absolute -left-1 top-0 h-2 w-10" />
+        <span className="smoke-strand smoke-mobile-strand-2 absolute left-0 top-2.5 h-1.5 w-12" />
       </div>
     </div>
   );

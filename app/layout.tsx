@@ -8,21 +8,10 @@ import { site } from '@/data/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vapemonkeysa.com'),
-  title: { default: 'Vape Monkey | Premium 21+ Vape Shop in North San Antonio', template: '%s | Vape Monkey' },
-  description:
-    'Vape Monkey is a premium adult-only vape destination in North San Antonio near Thousand Oaks, featuring curated products and a refined lounge atmosphere.',
-  openGraph: {
-    title: 'Vape Monkey San Antonio',
-    description: 'Premium 21+ vape retail and lounge experience in North San Antonio.',
-    url: 'https://vapemonkeysa.com',
-    siteName: 'Vape Monkey',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Vape Monkey San Antonio',
-    description: 'North San Antonio’s premium adult vape destination.',
-  },
+  title: { default: 'Vape Monkey | Premium 21+ Vape Shop in San Antonio', template: '%s | Vape Monkey' },
+  description: 'Vape Monkey is a premium adult-only vape shop in San Antonio, TX with curated products, helpful staff, and a comfortable lounge atmosphere.',
+  openGraph: { title: 'Vape Monkey San Antonio', description: 'Premium 21+ vape retail and lounge experience in San Antonio.', url: 'https://vapemonkeysa.com', siteName: 'Vape Monkey', type: 'website' },
+  twitter: { card: 'summary_large_image', title: 'Vape Monkey San Antonio', description: 'Trusted local vape shop and lounge for adults 21+.' },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -33,24 +22,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     address: site.address,
     telephone: site.phone,
     email: site.email,
-    areaServed: 'North San Antonio, TX',
+    areaServed: 'San Antonio, TX',
   };
 
   return (
     <html lang="en">
       <body>
-        <a href="#main" className="sr-only focus:not-sr-only">
-          Skip to content
-        </a>
-        <div id="site-shell" className="site-shell min-h-screen">
-          <Header />
-          <main id="main" className="pb-20 md:pb-0">
-            {children}
-          </main>
-          <Footer />
-          <MobileActionBar />
-        </div>
+        <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
         <AgeGate />
+        <Header />
+        <main id="main" className="pb-20 md:pb-0">{children}</main>
+        <Footer />
+        <MobileActionBar />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
       </body>
     </html>
